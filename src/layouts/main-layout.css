@@ -1,11 +1,16 @@
-#components-layout-demo-fixed .logo {
-  float: left;
+.header .logo {
   width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.2);
+  height: 32px;
+  background: url(../assets/template/glamit-log.svg) no-repeat center center;
+  background-size: contain;
+  margin: 16px;
+  float: left;
 }
 
-.site-layout .site-layout-background {
+.header h2 {
+  color: #fff;
+}
+
+.site-layout-background {
   background: #fff;
 }

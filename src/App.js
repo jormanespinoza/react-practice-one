@@ -1,4 +1,5 @@
 import MainLayout from './layouts/MainLayout';
+
 import 'antd/dist/antd.css';
 
 const App = () => {
@@ -7,4 +8,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
