@@ -15,9 +15,9 @@ const MainBreadcrumb = (props: Props) => {
     <Breadcrumb style={{ margin: '16px 0' }}>
       {paths.map((path: BreadcrumbPath) =>
         path.to
-          ? (<Item><Link to={path.to}>{path.name}</Link></Item>)
-          : (<Item>{path.name}</Item>))
-      }
+          ? (<Item key={path.key}><Link to={path.to}>{path.name}</Link></Item>)
+          : (<Item key={path.key}>{path.name}</Item>)
+      )}
     </Breadcrumb>
   )
 }

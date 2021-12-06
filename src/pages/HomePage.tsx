@@ -7,7 +7,7 @@ interface Props { }
 const HomePage = (props: Props) => {
   const { } = props
 
-  const paths: BreadcrumbPath[] = [{ name: 'Home' }]
+  const paths: BreadcrumbPath[] = [{ name: 'Home', key: 'home' }]
 
   return (
     <>

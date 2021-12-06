@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Menu, MenuTheme, Switch } from 'antd'
+import { useContext } from 'react'
+import { Menu, Switch } from 'antd'
 import {
   HomeOutlined,
   ApiOutlined,
@@ -7,6 +7,10 @@ import {
   CustomerServiceOutlined
 } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from '../context/theme-context';
+import { MenuContext } from '../context/menu-context';
+import { MenuItem } from '../interfaces/menu/MenuItem';
+import { SubMenuItem } from '../interfaces/menu/SubMenuItem';
 export declare type MenuMode = 'horizontal' | 'vertical' | 'inline';
 
 const { SubMenu, Item } = Menu
@@ -18,49 +22,93 @@ interface Props {
 
 const MainMenu = (props: Props) => {
   const { mode, collapsed } = props
-
-  const [theme, setTheme] = useState<MenuTheme>('dark')
-  const [current, setCurrent] = useState<string>('1')
-
-  const setActiceLink = (e: any) => {
-    setCurrent(e.key);
-  }
-
-  const changeTheme = (darkTheme: boolean) => {
-    setTheme(darkTheme ? "dark" : "light")
-  }
+  const { theme, changeTheme } = useContext(ThemeContext)
+  const { activeLink, changeActiveLink } = useContext(MenuContext)
+  const menu: Array<MenuItem> = [
+    {
+      to: '/',
+      title: 'Home',
+      key: 'home',
+      icon: <HomeOutlined />
+    },
+    {
+      title: 'API\'s',
+      key: 'apis',
+      icon: <ApiOutlined />,
+      submenu: [
+        {
+          to: '/apis',
+          title: 'All',
+          key: 'all',
+          icon: <ApiOutlined />
+        },
+        {
+          to: '/apis/glamit-oms',
+          title: 'Glamit OMS',
+          key: 'glamit-oms',
+          icon: <ApiOutlined />
+        }
+      ]
+    },
+    {
+      title: 'Developer',
+      key: 'developer',
+      icon: <CustomerServiceOutlined />,
+      submenu: [
+        {
+          to: 'https://github.com/jormanespinoza/react-practice-one',
+          title: 'Practice One Repository',
+          key: 'github',
+          icon: <GithubOutlined />,
+          external: true
+        }
+      ]
+    }
+  ]
 
   return (
     <Menu
       theme={theme}
-      onClick={setActiceLink}
-      selectedKeys={[current]}
-      defaultSelectedKeys={['home']}
+      onClick={changeActiveLink}
+      selectedKeys={[activeLink]}
       inlineCollapsed={collapsed}
       mode={mode}
     >
-      <Item key="home" icon={<HomeOutlined />}>
-        <Link to="/">Home</Link>
-      </Item>
-      <SubMenu key="apis" icon={<ApiOutlined />} title="API's">
-        <Item key="all" icon={<ApiOutlined />}><Link to="/apis">All</Link></Item>
-        <Item key="glamit-oms" icon={<ApiOutlined />}><Link to="/apis/glamit-oms">Glamit OMS</Link></Item>
-      </SubMenu>
-      <SubMenu key="developer" icon={<CustomerServiceOutlined />} title="Developer">
-        <Item key="github" icon={<GithubOutlined />}>
-          <Link to="https://github.com/jormanespinoza/react-practice-one" target="_blank">Practice One Repository</Link>
+      {menu.map((item: MenuItem) => 
+          item.submenu 
+            ? (<SubMenu key={item.key} icon={item.icon} title={item.title}>
+                {item.submenu.map((subitem: SubMenuItem) => (
+                  <Item key={subitem.key} icon={subitem.icon}>
+                    {subitem.external
+                      ? (<a href={subitem.to} target="_blank">{subitem.title}</a>)
+                      : subitem.to 
+                        ? (<Link to={subitem.to}>{subitem.title}</Link>)
+                        : (subitem.title)
+                    }
+                  </Item>)
+                )}
+              </SubMenu>) 
+            : (<Item key={item.key} icon={item.icon}>
+                {item.external 
+                  ? (<a href={item.to} target="_blank">{item.title}</a>)
+                  : item.to 
+                    ? (<Link to={item.to}>{item.title}</Link>)
+                    : (item.title)
+                }
+              </Item>)
+      )}
+
+      {mode === 'horizontal' && (
+        <Item>
+          <Switch
+            checked={theme === 'dark'}
+            onChange={changeTheme}
+            checkedChildren="Dark"
+            unCheckedChildren="Light"
+            size="default"
+          />
         </Item>
-      </SubMenu>
-      <Item>
-        <Switch
-          checked={theme === 'dark'}
-          style={{ marginLeft: 10 }}
-          onChange={changeTheme}
-          checkedChildren="D"
-          unCheckedChildren="L"
-          size="small"
-        />
-      </Item>
+      )}
     </Menu>
   )
 }

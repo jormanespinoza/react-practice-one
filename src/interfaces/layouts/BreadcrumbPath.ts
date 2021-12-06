@@ -1,4 +1,5 @@
 export interface BreadcrumbPath {
   to?: string
-  name: string
+  name: string,
+  key: string
 }

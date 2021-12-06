@@ -1,5 +1,9 @@
+.header {
+  transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+}
+
 .header .logo {
-  width: 120px;
+  width: 110px;
   height: 32px;
   background: url(../template/glamit-log.svg) no-repeat center center;
   background-size: contain;
@@ -13,4 +17,8 @@
 
 .site-layout-background {
   background: #fff;
+}
+
+.ant-menu-inline {
+  border-right: 0 !important;
 }

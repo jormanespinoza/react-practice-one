@@ -8,9 +8,9 @@ const ApisPage = (props: Props) => {
   const { } = props
 
   const paths: BreadcrumbPath[] = [
-    { to: '/', name: 'Home' },
-    { to: '/apis', name: 'API\'s' },
-    { name: 'Glamit OMS' },
+    { to: '/', name: 'Home', key: 'home'},
+    { to: '/apis', name: 'API\'s', key: 'apis'},
+    { name: 'Glamit OMS', key: 'glamit-oms'}
   ]
 
   return (

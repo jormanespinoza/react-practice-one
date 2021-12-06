@@ -8,8 +8,8 @@ const ApisPage = (props: Props) => {
   const { } = props
 
   const paths: BreadcrumbPath[] = [
-    { to: '/', name: 'Home' },
-    { name: 'API\'s' }
+    { to: '/', name: 'Home', key: 'home' },
+    { name: 'API\'s', key: 'apis' }
   ]
 
   return (
