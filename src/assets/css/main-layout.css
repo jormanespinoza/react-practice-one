@@ -1,7 +1,7 @@
 .header .logo {
   width: 120px;
   height: 32px;
-  background: url(../assets/template/glamit-log.svg) no-repeat center center;
+  background: url(../template/glamit-log.svg) no-repeat center center;
   background-size: contain;
   margin: 16px;
   float: left;

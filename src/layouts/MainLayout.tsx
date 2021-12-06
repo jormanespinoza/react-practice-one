@@ -1,11 +1,12 @@
-import { Layout } from 'antd'
+import { Layout } from 'antd';
 
 import MainFooter from './MainFooter'
 import MainHeader from './MainHeader'
 import MainSider from './MainSider'
-
-import './main-layout.css'
 import MainRouter from '../components/MainRouter'
+
+import '../assets/css/main-layout.css'
+
 const { Content } = Layout
 
 interface Props {

@@ -1,23 +1,23 @@
-import { Breadcrumb, PageHeader} from 'antd'
-
-const { Item } = Breadcrumb;
+import { PageHeader } from 'antd'
+import MainBreadcrumb from '../components/MainBreadcrumb';
+import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath';
 
 interface Props { }
 
 const HomePage = (props: Props) => {
   const { } = props
 
+  const paths: BreadcrumbPath[] = [{ name: 'Home' }]
+
   return (
     <>
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        <Item>Home</Item>
-      </Breadcrumb>
+      <MainBreadcrumb paths={paths} />
 
       <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
         <PageHeader
           className="site-page-header"
-          title="Home Page"
-          subTitle=" React Practice One"
+          title="Home"
+          subTitle="React Practice One"
         />
       </div>
     </>

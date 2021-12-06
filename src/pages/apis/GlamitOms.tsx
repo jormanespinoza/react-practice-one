@@ -1,6 +1,6 @@
-import { PageHeader } from 'antd'
-import MainBreadcrumb from '../components/MainBreadcrumb'
-import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath'
+import { Breadcrumb, PageHeader } from 'antd'
+import { BreadcrumbPath } from '../../interfaces/layouts/BreadcrumbPath'
+import MainBreadcrumb from '../../components/MainBreadcrumb';
 
 interface Props { }
 
@@ -9,7 +9,8 @@ const ApisPage = (props: Props) => {
 
   const paths: BreadcrumbPath[] = [
     { to: '/', name: 'Home' },
-    { name: 'API\'s' }
+    { to: '/apis', name: 'API\'s' },
+    { name: 'Glamit OMS' },
   ]
 
   return (
@@ -19,8 +20,8 @@ const ApisPage = (props: Props) => {
       <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
         <PageHeader
           className="site-page-header"
-          title="API's"
-          subTitle=" React Practice One | API's Available"
+          title="Glamit OMS"
+          subTitle=" React Practice One"
         />
       </div>
     </>
