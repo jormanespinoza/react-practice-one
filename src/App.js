@@ -14,7 +14,8 @@ const App = () => {
   }
 
   const changeActiveLink = (e) => {
-    setActiveLink(e.key);
+    const active  = e.key || e.target.parentNode.getAttribute('data-key')
+    setActiveLink(active);
   }
   
   return (

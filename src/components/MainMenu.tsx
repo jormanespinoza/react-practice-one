@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Menu, Switch } from 'antd'
+import { Menu } from 'antd'
 import {
   HomeOutlined,
   ApiOutlined,
@@ -7,11 +7,11 @@ import {
   CustomerServiceOutlined
 } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
-import { ThemeContext } from '../context/theme-context';
-import { MenuContext } from '../context/menu-context';
-import { MenuItem } from '../interfaces/menu/MenuItem';
-import { SubMenuItem } from '../interfaces/menu/SubMenuItem';
-export declare type MenuMode = 'horizontal' | 'vertical' | 'inline';
+import { ThemeContext } from '../context/theme-context'
+import { MenuContext } from '../context/menu-context'
+import { MenuItem } from '../interfaces/menu/MenuItem'
+import { SubMenuItem } from '../interfaces/menu/SubMenuItem'
+export declare type MenuMode = 'horizontal' | 'vertical' | 'inline'
 
 const { SubMenu, Item } = Menu
 
@@ -22,7 +22,7 @@ interface Props {
 
 const MainMenu = (props: Props) => {
   const { mode, collapsed } = props
-  const { theme, changeTheme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
   const { activeLink, changeActiveLink } = useContext(MenuContext)
   const menu: Array<MenuItem> = [
     {
@@ -33,13 +33,13 @@ const MainMenu = (props: Props) => {
     },
     {
       title: 'API\'s',
-      key: 'apis',
+      key: 'apis-submenu',
       icon: <ApiOutlined />,
       submenu: [
         {
           to: '/apis',
           title: 'All',
-          key: 'all',
+          key: 'apis',
           icon: <ApiOutlined />
         },
         {
@@ -96,18 +96,6 @@ const MainMenu = (props: Props) => {
                     : (item.title)
                 }
               </Item>)
-      )}
-
-      {mode === 'horizontal' && (
-        <Item>
-          <Switch
-            checked={theme === 'dark'}
-            onChange={changeTheme}
-            checkedChildren="Dark"
-            unCheckedChildren="Light"
-            size="default"
-          />
-        </Item>
       )}
     </Menu>
   )

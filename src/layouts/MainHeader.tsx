@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Layout } from 'antd'
+import { Layout, Switch } from 'antd'
 import { Link } from 'react-router-dom'
 import MainMenu from '../components/MainMenu'
 import { ThemeContext } from '../context/theme-context'
@@ -11,7 +11,7 @@ interface Props {
 
 const MainHeader = (props: Props) => {
   const { } = props
-  const { theme } = useContext(ThemeContext)
+  const { theme, changeTheme } = useContext(ThemeContext)
 
   return (
     <Header
@@ -20,6 +20,15 @@ const MainHeader = (props: Props) => {
     >
       <Link to="/"><div className="logo" /></Link>
       <MainMenu mode="horizontal" collapsed={false} />
+   
+      <Switch
+        checked={theme === 'dark'}
+        onChange={changeTheme}
+        checkedChildren="Dark Theme"
+        unCheckedChildren="Light Theme"
+        size="default"
+        style={{ position: 'absolute', top: 23, right: 16, zIndex: 2}}
+      />
     </Header>
   )
 }

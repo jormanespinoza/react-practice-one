@@ -1,6 +1,8 @@
-import { Breadcrumb } from 'antd'
+import { useContext } from 'react';
 import { Link } from 'react-router-dom'
+import { Breadcrumb } from 'antd'
 import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath';
+import { MenuContext } from '../context/menu-context';
 
 const { Item } = Breadcrumb
 
@@ -10,13 +12,14 @@ interface Props {
 
 const MainBreadcrumb = (props: Props) => {
   const { paths } = props
+  const { changeActiveLink } = useContext(MenuContext)
 
   return (
     <Breadcrumb style={{ margin: '16px 0' }}>
       {paths.map((path: BreadcrumbPath) =>
         path.to
-          ? (<Item key={path.key}><Link to={path.to}>{path.name}</Link></Item>)
-          : (<Item key={path.key}>{path.name}</Item>)
+          ? (<Item key={path.key} data-key={path.key} onClick={changeActiveLink}><Link to={path.to}>{path.name}</Link></Item>)
+          : (<Item key={path.key} data-key={path.key} onClick={changeActiveLink}>{path.name}</Item>)
       )}
     </Breadcrumb>
   )
