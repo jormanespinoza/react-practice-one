@@ -13,7 +13,7 @@ const HomePage = (props: Props) => {
     <>
       <MainBreadcrumb paths={paths} />
 
-      <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+      <div className="site-layout-background" style={{ padding: 16 }}>
         <PageHeader
           className="site-page-header"
           title="Home"
