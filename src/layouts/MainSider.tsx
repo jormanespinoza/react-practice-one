@@ -20,7 +20,7 @@ const MainLayout = () => {
       collapsed={collapsed}
       onCollapse={toggleCollapsed}
       theme={theme}
-      style={{ marginTop: -1 }}
+      style={{ marginTop: theme === 'dark' ? 0 : -1 }}
     >
       <MainMenu mode="inline" collapsed={collapsed} />
     </Sider>

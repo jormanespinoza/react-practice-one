@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Menu } from 'antd'
 import {
   HomeOutlined,
+  BarsOutlined,
   ApiOutlined,
   GithubOutlined,
   CustomerServiceOutlined
@@ -34,7 +35,7 @@ const MainMenu = (props: Props) => {
     {
       title: "API's",
       key: 'apis-submenu',
-      icon: <ApiOutlined />,
+      icon: <BarsOutlined />,
       submenu: [
         {
           to: '/apis',
