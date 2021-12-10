@@ -3,6 +3,7 @@ import { Menu } from 'antd'
 import {
   HomeOutlined,
   BarsOutlined,
+  SnippetsOutlined,
   ApiOutlined,
   GithubOutlined,
   CustomerServiceOutlined
@@ -35,13 +36,13 @@ const MainMenu = (props: Props) => {
     {
       title: "API's",
       key: 'apis-submenu',
-      icon: <BarsOutlined />,
+      icon: <SnippetsOutlined />,
       submenu: [
         {
           to: '/apis',
           title: 'All',
           key: 'apis',
-          icon: <ApiOutlined />
+          icon: <BarsOutlined />
         },
         {
           to: '/apis/glamit-oms',
