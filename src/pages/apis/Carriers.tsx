@@ -3,7 +3,7 @@ import { BreadcrumbPath } from '../../interfaces/layouts/BreadcrumbPath'
 import MainBreadcrumb from '../../components/MainBreadcrumb'
 
 const Carriers = () => {
-  const paths: BreadcrumbPath[] = [
+  const paths: Array<BreadcrumbPath> = [
     { to: '/', name: 'Home', key: 'home' },
     { to: '/apis', name: "API's", key: 'apis' },
     { name: 'Carriers', key: 'carriers' }

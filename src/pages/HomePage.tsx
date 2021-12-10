@@ -3,7 +3,7 @@ import MainBreadcrumb from '../components/MainBreadcrumb'
 import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath'
 
 const HomePage = () => {
-  const paths: BreadcrumbPath[] = [{ name: 'Home', key: 'home' }]
+  const paths: Array<BreadcrumbPath> = [{ name: 'Home', key: 'home' }]
 
   return (
     <>

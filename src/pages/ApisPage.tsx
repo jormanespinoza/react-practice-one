@@ -71,7 +71,7 @@ const ApisPage = () => {
     }
   ]
 
-  const paths: BreadcrumbPath[] = [
+  const paths: Array<BreadcrumbPath> = [
     { to: '/', name: 'Home', key: 'home' },
     { name: "API's", key: 'apis' }
   ]

@@ -13,7 +13,7 @@ import { ThemeContext } from '../context/theme-context'
 import { MenuContext } from '../context/menu-context'
 import { MenuItem } from '../interfaces/menu/MenuItem'
 import { SubMenuItem } from '../interfaces/menu/SubMenuItem'
-export declare type MenuMode = 'horizontal' | 'vertical' | 'inline'
+declare type MenuMode = 'horizontal' | 'vertical' | 'inline'
 
 const { SubMenu, Item } = Menu
 
