@@ -7,12 +7,17 @@ interface Props { }
 
 const ApisPage = (props: Props) => {
   const { } = props
+  
   const columns = [
     {
       title: 'API',
-      dataIndex: 'api',
       key: 'api',
-      render: (text: any) => <Link key="glamit-oms" to="/apis/glamit-oms">{text}</Link>,
+      render: (data: any) => {
+        const { api, to, key } = data
+        return (
+          <Link to={to} key={key}>{api}</Link>
+        )
+      }
     },
     {
       title: 'Description',
@@ -23,40 +28,45 @@ const ApisPage = (props: Props) => {
       title: 'Tags',
       key: 'tags',
       dataIndex: 'tags',
-      render: (tags: any) => (
-        <>
-          {tags.map((tag: any) => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
+      render: (tags: any) => (tags.map((tag: any) => {
+          const color = tag.length > 5 ? 'geekblue' : 'green'
+        
+          return (
+            <Tag color={color} key={tag}>
+              {tag.toUpperCase()}
+            </Tag>
+          )
+        })
       ),
     },
     {
       title: 'Action',
       key: 'action',
-      render: (text: any, record: any) => (
-        <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
-        </Space>
-      ),
+      render: (data: any) => {
+        const {to, key} = data
+        return (
+          <Space size="middle">
+            <Link to={to} key={key}>Endpoints</Link>
+          </Space>
+        )
+      }
     },
   ];
   
   const data = [
     {
-      key: '1',
+      key: 'glamit-oms',
       api: 'Glamit OMS',
-      description: 'Manage OMS orders, products, payments, rmas, etc.',
+      description: 'Manage orders, products, payments, rmas, etc.',
       tags: ['glamit', 'oms', 'java', 'spring', 'springboot'],
+      to: '/apis/glamit-oms'
+    },
+    {
+      key: 'carriers',
+      api: 'Carriers',
+      description: 'Manage carriers, shipments, tracking, sellers, tablerates, etc.',
+      tags: ['glamit', 'carriers', 'java', 'spring', 'springboot'],
+      to: '/apis/carriers'
     }
   ]
 
