@@ -1,12 +1,8 @@
 import { PageHeader } from 'antd'
-import MainBreadcrumb from '../components/MainBreadcrumb';
-import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath';
+import MainBreadcrumb from '../components/MainBreadcrumb'
+import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath'
 
-interface Props { }
-
-const HomePage = (props: Props) => {
-  const { } = props
-
+const HomePage = () => {
   const paths: BreadcrumbPath[] = [{ name: 'Home', key: 'home' }]
 
   return (

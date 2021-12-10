@@ -16,7 +16,7 @@ export declare type MenuMode = 'horizontal' | 'vertical' | 'inline'
 const { SubMenu, Item } = Menu
 
 interface Props {
-  mode: MenuMode,
+  mode: MenuMode
   collapsed: boolean
 }
 
@@ -32,7 +32,7 @@ const MainMenu = (props: Props) => {
       icon: <HomeOutlined />
     },
     {
-      title: 'API\'s',
+      title: "API's",
       key: 'apis-submenu',
       icon: <ApiOutlined />,
       submenu: [
@@ -46,6 +46,12 @@ const MainMenu = (props: Props) => {
           to: '/apis/glamit-oms',
           title: 'Glamit OMS',
           key: 'glamit-oms',
+          icon: <ApiOutlined />
+        },
+        {
+          to: '/apis/carriers',
+          title: 'Carriers',
+          key: 'carriers',
           icon: <ApiOutlined />
         }
       ]
@@ -74,28 +80,36 @@ const MainMenu = (props: Props) => {
       inlineCollapsed={collapsed}
       mode={mode}
     >
-      {menu.map((item: MenuItem) => 
-          item.submenu 
-            ? (<SubMenu key={item.key} icon={item.icon} title={item.title}>
-                {item.submenu.map((subitem: SubMenuItem) => (
-                  <Item key={subitem.key} icon={subitem.icon}>
-                    {subitem.external
-                      ? (<a href={subitem.to} target="_blank">{subitem.title}</a>)
-                      : subitem.to 
-                        ? (<Link to={subitem.to}>{subitem.title}</Link>)
-                        : (subitem.title)
-                    }
-                  </Item>)
+      {menu.map((item: MenuItem) =>
+        item.submenu ? (
+          <SubMenu key={item.key} icon={item.icon} title={item.title}>
+            {item.submenu.map((subitem: SubMenuItem) => (
+              <Item key={subitem.key} icon={subitem.icon}>
+                {subitem.external ? (
+                  <a href={subitem.to} target="_blank" rel="noreferrer">
+                    {subitem.title}
+                  </a>
+                ) : subitem.to ? (
+                  <Link to={subitem.to}>{subitem.title}</Link>
+                ) : (
+                  subitem.title
                 )}
-              </SubMenu>) 
-            : (<Item key={item.key} icon={item.icon}>
-                {item.external 
-                  ? (<a href={item.to} target="_blank">{item.title}</a>)
-                  : item.to 
-                    ? (<Link to={item.to}>{item.title}</Link>)
-                    : (item.title)
-                }
-              </Item>)
+              </Item>
+            ))}
+          </SubMenu>
+        ) : (
+          <Item key={item.key} icon={item.icon}>
+            {item.external ? (
+              <a href={item.to} target="_blank" rel="noreferrer">
+                {item.title}
+              </a>
+            ) : item.to ? (
+              <Link to={item.to}>{item.title}</Link>
+            ) : (
+              item.title
+            )}
+          </Item>
+        )
       )}
     </Menu>
   )

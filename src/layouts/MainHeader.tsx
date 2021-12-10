@@ -6,11 +6,7 @@ import { ThemeContext } from '../context/theme-context'
 
 const { Header } = Layout
 
-interface Props {
-}
-
-const MainHeader = (props: Props) => {
-  const { } = props
+const MainHeader = () => {
   const { theme, changeTheme } = useContext(ThemeContext)
 
   return (
@@ -18,16 +14,18 @@ const MainHeader = (props: Props) => {
       className="header"
       style={{ backgroundColor: theme === 'dark' ? '#001529' : '#fff' }}
     >
-      <Link to="/"><div className="logo" /></Link>
+      <Link to="/">
+        <div className="logo" />
+      </Link>
       <MainMenu mode="horizontal" collapsed={false} />
-   
+
       <Switch
         checked={theme === 'dark'}
         onChange={changeTheme}
         checkedChildren="Dark Theme"
         unCheckedChildren="Light Theme"
         size="default"
-        style={{ position: 'absolute', top: 23, right: 16, zIndex: 2}}
+        style={{ position: 'absolute', top: 23, right: 16, zIndex: 2 }}
       />
     </Header>
   )

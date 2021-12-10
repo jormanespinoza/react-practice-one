@@ -3,11 +3,7 @@ import { PageHeader, Table, Tag, Space } from 'antd'
 import MainBreadcrumb from '../components/MainBreadcrumb'
 import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath'
 
-interface Props { }
-
-const ApisPage = (props: Props) => {
-  const { } = props
-  
+const ApisPage = () => {
   const columns = [
     {
       title: 'API',
@@ -15,44 +11,48 @@ const ApisPage = (props: Props) => {
       render: (data: any) => {
         const { api, to, key } = data
         return (
-          <Link to={to} key={key}>{api}</Link>
+          <Link to={to} key={key}>
+            {api}
+          </Link>
         )
       }
     },
     {
       title: 'Description',
       dataIndex: 'description',
-      key: 'description',
+      key: 'description'
     },
     {
       title: 'Tags',
       key: 'tags',
       dataIndex: 'tags',
-      render: (tags: any) => (tags.map((tag: any) => {
+      render: (tags: any) =>
+        tags.map((tag: any) => {
           const color = tag.length > 5 ? 'geekblue' : 'green'
-        
+
           return (
             <Tag color={color} key={tag}>
               {tag.toUpperCase()}
             </Tag>
           )
         })
-      ),
     },
     {
       title: 'Action',
       key: 'action',
       render: (data: any) => {
-        const {to, key} = data
+        const { to, key } = data
         return (
           <Space size="middle">
-            <Link to={to} key={key}>Endpoints</Link>
+            <Link to={to} key={key}>
+              Endpoints
+            </Link>
           </Space>
         )
       }
-    },
-  ];
-  
+    }
+  ]
+
   const data = [
     {
       key: 'glamit-oms',
@@ -64,7 +64,8 @@ const ApisPage = (props: Props) => {
     {
       key: 'carriers',
       api: 'Carriers',
-      description: 'Manage carriers, shipments, tracking, sellers, tablerates, etc.',
+      description:
+        'Manage carriers, shipments, tracking, sellers, tablerates, etc.',
       tags: ['glamit', 'carriers', 'java', 'spring', 'springboot'],
       to: '/apis/carriers'
     }
@@ -72,7 +73,7 @@ const ApisPage = (props: Props) => {
 
   const paths: BreadcrumbPath[] = [
     { to: '/', name: 'Home', key: 'home' },
-    { name: 'API\'s', key: 'apis' }
+    { name: "API's", key: 'apis' }
   ]
 
   return (

@@ -2,11 +2,11 @@ import { PageHeader } from 'antd'
 import { BreadcrumbPath } from '../../interfaces/layouts/BreadcrumbPath'
 import MainBreadcrumb from '../../components/MainBreadcrumb'
 
-const GlamitOms = () => {
+const Carriers = () => {
   const paths: BreadcrumbPath[] = [
     { to: '/', name: 'Home', key: 'home' },
     { to: '/apis', name: "API's", key: 'apis' },
-    { name: 'Glamit OMS', key: 'glamit-oms' }
+    { name: 'Carriers', key: 'carriers' }
   ]
 
   return (
@@ -16,7 +16,7 @@ const GlamitOms = () => {
       <div className="site-layout-background" style={{ padding: 16 }}>
         <PageHeader
           className="site-page-header"
-          title="Glamit OMS"
+          title="Carriers"
           subTitle=" React Practice One"
         />
       </div>
@@ -24,4 +24,4 @@ const GlamitOms = () => {
   )
 }
 
-export default GlamitOms
+export default Carriers

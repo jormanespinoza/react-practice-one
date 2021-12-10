@@ -1,4 +1,4 @@
-import { Layout } from 'antd';
+import { Layout } from 'antd'
 
 import MainFooter from './MainFooter'
 import MainHeader from './MainHeader'
@@ -9,12 +9,7 @@ import '../assets/css/main-layout.css'
 
 const { Content } = Layout
 
-interface Props {
-}
-
-const MainLayout = (props: Props) => {
-  const { } = props
-
+const MainLayout = () => {
   return (
     <Layout>
       <MainHeader />

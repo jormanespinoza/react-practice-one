@@ -6,14 +6,10 @@ import { ThemeContext } from '../context/theme-context'
 
 const { Sider } = Layout
 
-interface Props { }
-
-const MainLayout = (props: Props) => {
-  const { } = props
-
+const MainLayout = () => {
   const { theme } = useContext(ThemeContext)
   const [collapsed, setCollapsed] = useState<boolean>(false)
-  
+
   const toggleCollapsed = () => {
     setCollapsed(!collapsed)
   }
