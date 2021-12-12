@@ -27,8 +27,6 @@ const CarriersList = () => {
       })
   }, [])
 
-  console.log(carriers)
-
   const columns = [
     {
       title: 'Id',

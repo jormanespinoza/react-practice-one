@@ -1,3 +1,5 @@
+import { StoreHandlerCarrier } from './StoreHandlerCarrier'
+
 export interface Carrier {
   id: number
   carrier_id: string
@@ -7,5 +9,5 @@ export interface Carrier {
   insured_cost: number | null
   omnichannel: boolean
   status: boolean
-  store_carrier_handler: Carrier
+  store_carrier_handler: StoreHandlerCarrier
 }
