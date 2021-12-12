@@ -1,23 +1,29 @@
 import { Link } from 'react-router-dom'
 import { PageHeader, Table, Tag, Space } from 'antd'
-import MainBreadcrumb from '../components/MainBreadcrumb'
-import { BreadcrumbPath } from '../interfaces/layouts/BreadcrumbPath'
+import { BreadcrumbPath } from '../../../interfaces/layouts/BreadcrumbPath'
+import MainBreadcrumb from '../../../components/MainBreadcrumb'
 
-const ApisPage = () => {
+const Carriers = () => {
   const paths: Array<BreadcrumbPath> = [
     { to: '/', name: 'Home', key: 'home' },
-    { name: "API's", key: 'apis' }
+    { to: '/apis', name: "API's", key: 'apis' },
+    { name: 'Carriers', key: 'carriers' }
   ]
 
   const columns = [
     {
-      title: 'API',
-      key: 'api',
+      title: 'Method',
+      key: 'method',
+      dataIndex: 'method',
+    },
+    {
+      title: 'Endpoint',
+      key: 'endpoint',
       render: (data: any) => {
-        const { api, to, key } = data
+        const { endpoint, to, key } = data
         return (
           <Link to={to} key={key}>
-            {api}
+            {endpoint}
           </Link>
         )
       }
@@ -50,7 +56,7 @@ const ApisPage = () => {
         return (
           <Space size="middle">
             <Link to={to} key={key}>
-              Endpoints
+              Do request
             </Link>
           </Space>
         )
@@ -60,19 +66,20 @@ const ApisPage = () => {
 
   const data = [
     {
-      key: 'glamit-oms',
-      api: 'Glamit OMS',
-      description: 'Manage orders, products, payments, rmas, etc.',
-      tags: ['glamit', 'oms', 'java', 'spring', 'springboot'],
-      to: '/apis/glamit-oms'
+      key: 'get-carriers',
+      endpoint: '/carriers',
+      method: 'GET',
+      description: 'List all carriers',
+      tags: ['get', 'carriers', 'list'],
+      to: '/apis/carriers/carriers-list'
     },
     {
-      key: 'carriers',
-      api: 'Carriers',
-      description:
-        'Manage carriers, shipments, tracking, sellers, tablerates, etc.',
-      tags: ['glamit', 'carriers', 'java', 'spring', 'springboot'],
-      to: '/apis/carriers'
+      key: 'get-sellers-ids',
+      endpoint: '/sellers/ids',
+      method: 'GET',
+      description: 'List all sellers ids',
+      tags: ['get', 'sellers', 'ids', 'list'],
+      to: '/apis/carriers/sellers-ids'
     }
   ]
 
@@ -83,8 +90,8 @@ const ApisPage = () => {
       <div className="site-layout-background" style={{ padding: 16 }}>
         <PageHeader
           className="site-page-header"
-          title="API's"
-          subTitle=" React Practice One | API's Available"
+          title="Carriers"
+          subTitle=" React Practice One"
         />
       </div>
 
@@ -93,4 +100,4 @@ const ApisPage = () => {
   )
 }
 
-export default ApisPage
+export default Carriers
