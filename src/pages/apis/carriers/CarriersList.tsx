@@ -124,7 +124,7 @@ const CarriersList = () => {
       render: (carrier: Carrier) => (
         carrier.store_carrier_handler && carrier.store_carrier_handler.carrier_name
       )
-    },
+    }
   ]
 
   return (
