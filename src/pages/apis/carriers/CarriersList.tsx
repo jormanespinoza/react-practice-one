@@ -48,6 +48,7 @@ const CarriersList = () => {
       key: 'type',
       render: (carrier: Carrier) => {
         const { id, carrier_type: carrierType } = carrier
+        const key = `${id}-${carrierType.toLowerCase()}`
         let color
         switch (carrierType) {
           case 'NATIVE': color = 'green'
@@ -56,7 +57,6 @@ const CarriersList = () => {
             break
           default: color = 'cyan'
         }
-        const key = `${id}-${carrierType.toLowerCase()}`
 
         return (
           <Tag color={color} key={key}>
@@ -88,7 +88,7 @@ const CarriersList = () => {
         const { id, has_branches } = carrier
         const key = `${id}-${has_branches}`
         const hasBranches = has_branches ? 'Yes' : 'No'
-        const color = carrier.has_branches ? 'green' : 'silver'
+        const color = has_branches ? 'green' : 'silver'
 
         return (
           <Tag color={color} key={key}>
@@ -109,7 +109,7 @@ const CarriersList = () => {
         const { id, omnichannel } = carrier
         const key = `${id}-${omnichannel}`
         const isOmnichannel = omnichannel ? 'Yes' : 'No'
-        const color = carrier.omnichannel ? 'green' : 'silver'
+        const color = omnichannel ? 'green' : 'silver'
 
         return (
           <Tag color={color} key={key}>
