@@ -1,8 +1,7 @@
 import { useState, useContext } from 'react'
-import { Layout } from 'antd'
-
 import MainMenu from '../components/MainMenu'
 import { ThemeContext } from '../context/theme-context'
+import { Layout } from 'antd'
 
 const { Sider } = Layout
 

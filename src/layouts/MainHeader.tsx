@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { Layout, Switch } from 'antd'
 import { Link } from 'react-router-dom'
 import MainMenu from '../components/MainMenu'
 import { ThemeContext } from '../context/theme-context'
+import { Layout, Switch } from 'antd'
 
 const { Header } = Layout
 

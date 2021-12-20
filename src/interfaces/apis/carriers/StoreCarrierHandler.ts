@@ -1,4 +1,4 @@
-export interface StoreHandlerCarrier {
+export interface StoreCarrierHandler {
   carrier_id: string
   carrier_name: string
   carrier_type: string

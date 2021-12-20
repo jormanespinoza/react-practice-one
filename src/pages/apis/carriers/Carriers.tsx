@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { PageHeader, Table, Tag, Space } from 'antd'
 import { BreadcrumbPath } from '../../../interfaces/layouts/BreadcrumbPath'
 import MainBreadcrumb from '../../../components/MainBreadcrumb'
+import { PageHeader, Table, Tag, Space } from 'antd'
 
 const Carriers = () => {
   const paths: Array<BreadcrumbPath> = [
@@ -14,7 +14,7 @@ const Carriers = () => {
     {
       title: 'Method',
       key: 'method',
-      dataIndex: 'method',
+      dataIndex: 'method'
     },
     {
       title: 'Endpoint',
@@ -78,7 +78,7 @@ const Carriers = () => {
       endpoint: '/sellers/ids',
       method: 'GET',
       description: 'List all sellers ids',
-      tags: ['get', 'sellers', 'ids', 'list'],
+      tags: ['get', 'sellers', 'ids'],
       to: '/apis/carriers/sellers-ids'
     }
   ]
@@ -91,7 +91,7 @@ const Carriers = () => {
         <PageHeader
           className="site-page-header"
           title="Carriers"
-          subTitle=" React Practice One"
+          subTitle="React Practice One"
         />
       </div>
 

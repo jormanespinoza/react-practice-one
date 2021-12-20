@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { PageHeader, Table, notification, Tag } from 'antd'
 import { BreadcrumbPath } from '../../../interfaces/layouts/BreadcrumbPath'
 import MainBreadcrumb from '../../../components/MainBreadcrumb'
 import { getCarriers } from '../../../services/carriers/CarrierService'
 import { Carrier } from '../../../interfaces/apis/carriers/Carrier'
+import { PageHeader, Table, notification, Tag } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
 
 const CarriersList = () => {
@@ -18,8 +18,8 @@ const CarriersList = () => {
 
   useEffect(() => {
     getCarriers()
-      .then(response => setCarriers(response.data))
-      .catch(err => {
+      .then((response) => setCarriers(response.data))
+      .catch((err) => {
         notification['error']({
           message: 'API Carriers',
           description: err.message
@@ -51,11 +51,14 @@ const CarriersList = () => {
         const key = `${id}-${carrierType.toLowerCase()}`
         let color
         switch (carrierType) {
-          case 'NATIVE': color = 'green'
+          case 'NATIVE':
+            color = 'green'
             break
-          case 'INTEGRATED': color = 'geekblue'
+          case 'INTEGRATED':
+            color = 'geekblue'
             break
-          default: color = 'cyan'
+          default:
+            color = 'cyan'
         }
 
         return (
@@ -100,7 +103,7 @@ const CarriersList = () => {
     {
       title: 'Insired Cost',
       key: 'insured-cost',
-      render: (carrier: Carrier) => (carrier.insured_cost || 0)
+      render: (carrier: Carrier) => carrier.insured_cost || 0
     },
     {
       title: 'Omnichannel',
@@ -121,9 +124,9 @@ const CarriersList = () => {
     {
       title: 'Store Carrier Handler',
       key: 'store-carrier-handler',
-      render: (carrier: Carrier) => (
-        carrier.store_carrier_handler && carrier.store_carrier_handler.carrier_name
-      )
+      render: (carrier: Carrier) =>
+        carrier.store_carrier_handler &&
+        carrier.store_carrier_handler.carrier_name
     }
   ]
 
@@ -139,14 +142,13 @@ const CarriersList = () => {
         />
       </div>
 
-      {carriers.length === 0
-        ? (
-          <div style={{ padding: 16, fontSize: 32 }}><LoadingOutlined /></div>
-        )
-        : (
-          <Table columns={columns} dataSource={carriers} />
-        )
-      }
+      {carriers.length === 0 ? (
+        <div style={{ padding: 16, fontSize: 32 }}>
+          <LoadingOutlined />
+        </div>
+      ) : (
+        <Table columns={columns} dataSource={carriers} />
+      )}
     </>
   )
 }

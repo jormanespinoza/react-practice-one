@@ -1,4 +1,9 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { ThemeContext } from '../context/theme-context'
+import { MenuContext } from '../context/menu-context'
+import { MenuItem } from '../interfaces/menu/MenuItem'
+import { SubMenuItem } from '../interfaces/menu/SubMenuItem'
 import { Menu } from 'antd'
 import {
   HomeOutlined,
@@ -8,11 +13,6 @@ import {
   GithubOutlined,
   CustomerServiceOutlined
 } from '@ant-design/icons'
-import { Link } from 'react-router-dom'
-import { ThemeContext } from '../context/theme-context'
-import { MenuContext } from '../context/menu-context'
-import { MenuItem } from '../interfaces/menu/MenuItem'
-import { SubMenuItem } from '../interfaces/menu/SubMenuItem'
 declare type MenuMode = 'horizontal' | 'vertical' | 'inline'
 
 const { SubMenu, Item } = Menu

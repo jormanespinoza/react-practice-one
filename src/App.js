@@ -2,7 +2,6 @@ import { useState } from 'react'
 import MainLayout from './layouts/MainLayout'
 import { ThemeContext } from './context/theme-context'
 import { MenuContext } from './context/menu-context'
-
 import 'antd/dist/antd.css'
 
 const App = () => {

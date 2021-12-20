@@ -14,6 +14,11 @@ const axios = Axios.create({
   responseType: 'json'
 })
 
-export const getCarriers = () => {
-  return axios.get(`${carriersApiBaseUrl}/carrier`)
+export const getSellersIds = () => {
+  return axios.get(`${carriersApiBaseUrl}/seller/ids`)
+}
+
+export const getSellerById = (sellerId: string) => {
+  axios.defaults.headers.common['Glamit-Env'] = sellerId
+  return axios.get(`${carriersApiBaseUrl}/seller`)
 }
